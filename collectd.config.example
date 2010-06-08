@@ -1,0 +1,40 @@
+# ref.: http://collectd.org/documentation/manpages/collectd-python.5.shtml#configuration
+
+(...)
+
+<LoadPlugin python>
+        Globals true
+</LoadPlugin>
+
+(...)
+
+<Plugin python>
+        ModulePath "/path/to/python/modules"
+	LogTraces true
+	Interactive false
+
+	# Module import
+	Import "2amqp"
+
+	# Module config
+	<Module 2amqp>
+		# AMQP threads
+		threads "2"
+		# AMQP server name
+		amqp_server "amqp.mydomain.com"
+		amqp_port "5672"
+		# AMQP virtualhost
+		amqp_vhost "/collectd"
+		# AMQP credentials
+		amqp_user "2amqp"
+		amqp_passwd "mypass"
+		# AMQP exchange
+		amqp_exchange "stats"
+		# AMQP routekey
+		amqp_routekey "stats"
+		# AMQP message delivery mode (1 = persistent)
+		amqp_delivery_mode "1"
+	</Module>
+</Plugin>
+
+(...)

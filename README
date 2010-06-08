@@ -1,0 +1,8 @@
+'2amqp' is a collectd write-plugin for forward the read-plugin messages to the AMQP server.
+
+Dependencies:
+- collectd: http://collectd.org/
+- collectd python-plugin: http://collectd.org/documentation/manpages/collectd-python.5.shtml
+- python amqplib: http://barryp.org/software/py-amqplib/
+
+See 'collectd.config.example' for configuration parameters
