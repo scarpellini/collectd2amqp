@@ -1,8 +1,19 @@
 '2amqp' is a collectd write-plugin for forward the read-plugin messages to the AMQP server.
+The messages sent to the AMQP server is a collectd PluginData()* serialized in JSON using python simplejson.
+The name/values of the class attributes are just converted to keys/values in the JSON data.
+
+So, the JSON output is like this: {'plugin': 'tcpconns', 'interval': 10, 'host': 'server01.mydomain.com', 'values': [0.0], 'time': 1275957262.0, 'plugin_instance': '5672-local', 'type_instance': 'SYN_SENT', 'type': 'tcp_connections'}
+
+* PluginData(): http://collectd.org/documentation/manpages/collectd-python.5.shtml#plugindata
+
+
 
 Dependencies:
 - collectd: http://collectd.org/
 - collectd python-plugin: http://collectd.org/documentation/manpages/collectd-python.5.shtml
-- python amqplib: http://barryp.org/software/py-amqplib/
+- python simplejson: http://pypi.python.org/pypi/simplejson/
+- python amqplib: http://pypi.python.org/pypi/amqplib/0.6.1
+
+
 
 See 'collectd.config.example' for configuration parameters
